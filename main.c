@@ -6,7 +6,7 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 16:33:15 by manujime          #+#    #+#             */
-/*   Updated: 2023/04/07 12:19:29 by manujime         ###   ########.fr       */
+/*   Updated: 2023/04/07 12:31:21 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,14 @@
 int	ft_extension_check(char *str, char *ex)
 {
 	int		len;
+	int		ex_len;
 	char	*aux;
 
 	len = ft_strlen(str);
-	if (len < 4)
+	ex_len = ft_strlen(ex);
+	if (len < ex_len)
 		return (0);
-	aux = str + (len - 4);
+	aux = str + (len - ex_len);
 	if (ft_strcmp(aux, ex) == 0)
 		return (1);
 	else
