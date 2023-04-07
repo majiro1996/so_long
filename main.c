@@ -6,7 +6,7 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 16:33:15 by manujime          #+#    #+#             */
-/*   Updated: 2023/04/06 23:42:41 by manujime         ###   ########.fr       */
+/*   Updated: 2023/04/07 12:19:29 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,11 @@ int	ft_extension_check(char *str, char *ex)
 		return (0);
 }
 
-void	ft_so_long(char *name)
+/*initialices the game*/
+void	ft_so_long(char *mapfile)
 {
-	//code
+	if (mapfile)
+		ft_printf("ok\n");
 }
 
 int	main(int argc, char **argv)
