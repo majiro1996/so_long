@@ -6,7 +6,7 @@
 #    By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/06 16:21:34 by manujime          #+#    #+#              #
-#    Updated: 2023/04/06 19:00:10 by manujime         ###   ########.fr        #
+#    Updated: 2023/04/10 21:02:03 by manujime         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,9 @@ CFLAGS = -Wall -Wextra -Werror
 LIBFT = libft/libft.a
 
 SRC =   main.c \
+		map_loader.c \
+		map_check.c \
+		utils.c \
 
 OBJ = $(SRC:.c=.o)
 
