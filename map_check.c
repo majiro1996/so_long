@@ -6,7 +6,7 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 23:30:08 by manujime          #+#    #+#             */
-/*   Updated: 2023/04/12 10:53:55 by manujime         ###   ########.fr       */
+/*   Updated: 2023/04/12 15:25:44 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,16 +132,16 @@ char	**ft_map_check(char *mapfile)
 	if (!(ft_el_count(map, 'P') == 1 && ft_el_count(map, 'C') >= 1
 			&& ft_el_count(map, 'E') == 1))
 	{
-		clear ++;
+		clear --;
 		ft_printf("Error, wrong number of some elements in the map\n");
 	}
 	if (ft_walls(map, mapfile) != 1)
 	{
-		clear ++;
+		clear --;
 		ft_printf("Error, map not surrounded by walls\n");
 	}
-	if (clear == 4)
+	if (clear == 2)
 		return (map);
 	ft_free_char_matrix(map);
-	exit(1);
+	return (NULL);
 }

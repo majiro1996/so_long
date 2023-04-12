@@ -6,17 +6,17 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 16:33:15 by manujime          #+#    #+#             */
-/*   Updated: 2023/04/12 10:52:45 by manujime         ###   ########.fr       */
+/*   Updated: 2023/04/12 17:40:27 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-/*
+
 void	ft_leaks(void)
 {
-	system("leaks -q push_swap");
+	system("leaks -q so_long");
 }
-*/
+
 
 /*checks if the map extension is correct*/
 int	ft_extension_check(char *str, char *ex)
@@ -42,11 +42,16 @@ void	ft_so_long(char *mapfile)
 	char	**map;
 
 	map = ft_map_check(mapfile);
-	ft_printf("ok\n");
+	if (ft_path(map))
+	{
+		//so long
+	}
+	ft_free_char_matrix(map);
 }
 
 int	main(int argc, char **argv)
 {
+	atexit(ft_leaks);
 	int	fd;
 
 	if (argc != 2)
