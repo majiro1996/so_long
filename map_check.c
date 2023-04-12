@@ -6,7 +6,7 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 23:30:08 by manujime          #+#    #+#             */
-/*   Updated: 2023/04/11 17:44:35 by manujime         ###   ########.fr       */
+/*   Updated: 2023/04/12 10:53:55 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ int	ft_elements(char **map)
 	return (1);
 }
 
+/*counts how many elements of one type are in the map*/
 int	ft_el_count(char **map, char el)
 {
 	int		el_count;
@@ -87,48 +88,60 @@ int	ft_el_count(char **map, char el)
 	return (el_count);
 }
 
+/*checks if all borders of the map are '1'*/
 int	ft_walls(char **map, char *mapfile)
 {
 	int		c;
-	int		k;
+	int		x_len;
+	int		y_len;
 
+	x_len = ft_strlen(map[0]);
+	y_len = ft_count_y(mapfile);
 	c = 0;
-	while (map[c])
+	while (map[0][c] == '1')
+		c++;
+	if (c != x_len - 1)
+		return (0);
+	c = 1;
+	while (c < (y_len - 1))
 	{
-		k = 0;
-		while (map[c][k])
-		{
-			if (map[c][k] != '1')
-			{
-				ft_printf("Error, not surrounded by walls\n");
-				return (0);
-			}
-			k++;
-		}
+		if (map[c][0] != '1' || map[c][x_len - 2] != '1')
+			return (0);
 		c++;
 	}
+	c = 0;
+	while (map[y_len - 1][c] == '1')
+		c++;
+	if (c != x_len - 1)
+		return (0);
 	return (1);
 }
 
-int	ft_map_check(char *mapfile)
+/*checks if the map is valid and returns it, if it's not it prints
+an Error message*/
+char	**ft_map_check(char *mapfile)
 {
 	int		clear;
 	char	**map;
 
 	clear = 0;
 	map = ft_charge_map(mapfile);
-	ft_print_char_matrix(map);
+	ft_print_char_matrix(map);//
 	clear += ft_shape(map, mapfile);
 	clear += ft_elements(map);
-	if (ft_el_count(map, 'P') == 1 && ft_el_count(map, 'C') >= 1
-		&& ft_el_count(map, 'E') == 1)
-		clear += 1;
-	clear += ft_walls(map, mapfile);
-	if (clear == 3)
+	if (!(ft_el_count(map, 'P') == 1 && ft_el_count(map, 'C') >= 1
+			&& ft_el_count(map, 'E') == 1))
 	{
-		ft_printf("^-^ working");
-		return (1);
+		clear ++;
+		ft_printf("Error, wrong number of some elements in the map\n");
 	}
-	else
-		return (0);
+	if (ft_walls(map, mapfile) != 1)
+	{
+		clear ++;
+		ft_printf("Error, map not surrounded by walls\n");
+	}
+	if (clear == 4)
+		return (map);
+	ft_free_char_matrix(map);
+	exit(1);
 }

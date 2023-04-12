@@ -6,7 +6,7 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 16:33:15 by manujime          #+#    #+#             */
-/*   Updated: 2023/04/10 21:06:16 by manujime         ###   ########.fr       */
+/*   Updated: 2023/04/12 10:52:45 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,10 @@ int	ft_extension_check(char *str, char *ex)
 /*initialices the game*/
 void	ft_so_long(char *mapfile)
 {
+	char	**map;
+
+	map = ft_map_check(mapfile);
 	ft_printf("ok\n");
-	ft_map_check(mapfile);
 }
 
 int	main(int argc, char **argv)
@@ -65,7 +67,7 @@ int	main(int argc, char **argv)
 		}
 		close(fd);
 		ft_so_long(argv[1]);
-		return (0);
+		exit (0);
 	}
 	else
 		ft_printf("Error, not a .ber file\n");
