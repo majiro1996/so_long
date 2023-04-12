@@ -6,13 +6,14 @@
 #    By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/06 16:21:34 by manujime          #+#    #+#              #
-#    Updated: 2023/04/12 12:46:07 by manujime         ###   ########.fr        #
+#    Updated: 2023/04/12 18:47:01 by manujime         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 LIBFT = libft/libft.a
+MLX42 = MLX42/libmlx42.a
 
 SRC =   main.c \
 		map_loader.c \
@@ -26,12 +27,14 @@ NAME = so_long
 
 all: $(NAME)
 
-$(NAME): $(LIBFT) $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) $(LIBFT) -o $(NAME)
+$(NAME): $(LIBFT) $(MLX42) $(OBJ)
+	$(CC) $(CFLAGS) $(OBJ) $(LIBFT) $(MLX42) -framework Cocoa -framework OpenGL -framework IOKit -Iinclude -lglfw -L"/Users/manujime/.brew/opt/glfw/lib/" -o $(NAME)
 
 $(LIBFT):
 	make extra -C libft
 
+$(MLX42):
+	make -C MLX42/
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
@@ -43,6 +46,7 @@ clean:
 fclean: clean
 	rm -f $(NAME)
 	make fclean -C libft
+	make clean -C MLX42/
 
 re: fclean all
 

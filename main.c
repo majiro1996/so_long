@@ -6,7 +6,7 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 16:33:15 by manujime          #+#    #+#             */
-/*   Updated: 2023/04/12 17:40:27 by manujime         ###   ########.fr       */
+/*   Updated: 2023/04/12 17:56:07 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void	ft_leaks(void)
 {
 	system("leaks -q so_long");
 }
-
 
 /*checks if the map extension is correct*/
 int	ft_extension_check(char *str, char *ex)
