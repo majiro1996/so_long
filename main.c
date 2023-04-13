@@ -6,7 +6,7 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 16:33:15 by manujime          #+#    #+#             */
-/*   Updated: 2023/04/12 17:56:07 by manujime         ###   ########.fr       */
+/*   Updated: 2023/04/13 15:35:06 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,13 @@ int	ft_extension_check(char *str, char *ex)
 void	ft_so_long(char *mapfile)
 {
 	char	**map;
+	t_game	game;
 
 	map = ft_map_check(mapfile);
 	if (ft_path(map))
 	{
-		//so long
+		ft_data_init(&game, map);
+		ft_window(&game);
 	}
 	ft_free_char_matrix(map);
 }
