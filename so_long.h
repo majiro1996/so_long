@@ -6,7 +6,7 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 18:47:35 by manujime          #+#    #+#             */
-/*   Updated: 2023/04/13 15:33:25 by manujime         ###   ########.fr       */
+/*   Updated: 2023/04/13 16:57:51 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int		ft_el_count(char **map, char el);
 //map_loader
 int		ft_count_y(char *mapfile);
 char	**ft_charge_map(char *mapfile);
-void	ft_data_init(t_game *game, char **map);
+void	ft_data_init(t_game *game, char **map, char *mapfile);
 //path
 int		ft_path(char **map);
 t_point	ft_get_player_yx(char **map);
