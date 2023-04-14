@@ -6,7 +6,7 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 20:52:23 by manujime          #+#    #+#             */
-/*   Updated: 2023/04/14 17:18:40 by manujime         ###   ########.fr       */
+/*   Updated: 2023/04/14 18:42:38 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,43 +35,43 @@ void	ft_render_player(t_game *game)
 
 void	ft_fill_map(t_game *game)
 {
-	int	i;
-	int	j;
+	int	y;
+	int	x;
 
-	i = 0;
-	while (game->map[i])
+	y = 0;
+	while (game->map[y])
 	{
-		j = 0;
-		while (game->map[i][j])
+		x = 0;
+		while (game->map[y][x])
 		{
 			game->floor = mlx_texture_to_image(game->mlx, game->textures->floor);
-			if (mlx_image_to_window(game->mlx, game->floor, j * 32,
-					i * 32) < 0)
+			if (mlx_image_to_window(game->mlx, game->floor, x * 32,
+					y * 32) < 0)
 				exit(1);
-			if (game->map[i][j] == '1')
+			if (game->map[y][x] == '1')
 			{
 				game->wall = mlx_texture_to_image(game->mlx, game->textures->wall);
-				if (mlx_image_to_window(game->mlx, game->wall, j * 32,
-						i * 32) < 0)
+				if (mlx_image_to_window(game->mlx, game->wall, x * 32,
+						y * 32) < 0)
 					exit(1);
 			}
-			else if (game->map[i][j] == 'C')
+			else if (game->map[y][x] == 'C')
 			{
 				game->potion = mlx_texture_to_image(game->mlx, game->textures->potion);
-				if (mlx_image_to_window(game->mlx, game->potion, j * 32,
-						i * 32) < 0)
+				if (mlx_image_to_window(game->mlx, game->potion, x * 32,
+						y * 32) < 0)
 					exit(1);
 			}
-			else if (game->map[i][j] == 'E')
+			else if (game->map[y][x] == 'E')
 			{
 				game->ladder = mlx_texture_to_image(game->mlx, game->textures->ladder);
-				if (mlx_image_to_window(game->mlx, game->ladder, j * 32,
-						i * 32) < 0)
+				if (mlx_image_to_window(game->mlx, game->ladder, x * 32,
+						y * 32) < 0)
 					exit(1);
 			}
-			j++;
+			x++;
 		}
-		i++;
+		y++;
 	}
 }
 
