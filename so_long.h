@@ -6,7 +6,7 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 18:47:35 by manujime          #+#    #+#             */
-/*   Updated: 2023/04/13 16:57:51 by manujime         ###   ########.fr       */
+/*   Updated: 2023/04/14 16:33:02 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,25 @@ typedef struct s_point
 	int		x;
 }		t_point;
 
+typedef struct s_textures
+{
+	mlx_texture_t	*floor;
+	mlx_texture_t	*wall;
+	mlx_texture_t	*potion;
+	mlx_texture_t	*player;
+	mlx_texture_t	*ladder;
+
+}	t_textures;
+
 typedef struct s_game
 {
+	t_textures	*textures;
 	mlx_t		*mlx;
-	mlx_image_t	*man;
+	mlx_image_t	*floor;
+	mlx_image_t	*wall;
+	mlx_image_t	*potion;
+	mlx_image_t	*player;
+	mlx_image_t	*ladder;
 	char		**map;
 	int			move_count;
 	int			total_collect;
@@ -42,7 +57,7 @@ typedef struct s_game
 }		t_game;
 
 //map_check
-char	**ft_map_check(char *mapfile);
+int		ft_map_check(char *mapfile);
 int		ft_el_count(char **map, char el);
 //map_loader
 int		ft_count_y(char *mapfile);

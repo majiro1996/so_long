@@ -6,7 +6,7 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 23:30:08 by manujime          #+#    #+#             */
-/*   Updated: 2023/04/12 15:25:44 by manujime         ###   ########.fr       */
+/*   Updated: 2023/04/14 16:33:13 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,7 +119,7 @@ int	ft_walls(char **map, char *mapfile)
 
 /*checks if the map is valid and returns it, if it's not it prints
 an Error message*/
-char	**ft_map_check(char *mapfile)
+int	ft_map_check(char *mapfile)
 {
 	int		clear;
 	char	**map;
@@ -140,8 +140,8 @@ char	**ft_map_check(char *mapfile)
 		clear --;
 		ft_printf("Error, map not surrounded by walls\n");
 	}
-	if (clear == 2)
-		return (map);
 	ft_free_char_matrix(map);
-	return (NULL);
+	if (clear == 2)
+		return (1);
+	return (0);
 }

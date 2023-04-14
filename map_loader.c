@@ -6,7 +6,7 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 18:56:24 by manujime          #+#    #+#             */
-/*   Updated: 2023/04/13 16:58:13 by manujime         ###   ########.fr       */
+/*   Updated: 2023/04/14 16:30:07 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,16 +61,22 @@ char	**ft_charge_map(char *mapfile)
 
 void	ft_data_init(t_game *game, char **map, char *mapfile)
 {
-	game->mlx = 0;
-	game->man = 0;
+	t_point	pos;
+
+	pos = ft_get_player_yx(map);
+	ft_printf("y%d, x%d\n", pos.y, pos.x);
+	game->textures = NULL;
+	game->mlx = NULL;
+	game->player = NULL;
 	game->map = map;
 	game->move_count = 0;
 	game->total_collect = ft_el_count(map, 'C');
 	game->current_collect = 0;
-	game->current_y = 0;
-	game->current_x = 0;
+	game->current_y = pos.y;
+	game->current_x = pos.x;
 	game->size_y = ft_count_y(mapfile);
-	game->size_x = ft_strlen(map[0] - 1);
+	game->size_x = ft_strlen(map[0]) - 1;
 	game->exit = 0;
 	game->key_pressed = 0;
+	ft_printf("y%d, x%d", game->current_y, game->current_x);
 }

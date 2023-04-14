@@ -6,7 +6,7 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 11:02:25 by manujime          #+#    #+#             */
-/*   Updated: 2023/04/12 17:42:44 by manujime         ###   ########.fr       */
+/*   Updated: 2023/04/14 16:24:41 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ t_point	ft_get_player_yx(char **map)
 		}
 		y++;
 	}
+	ft_printf("GET y%d, x%d\n", begin.y, begin.x);
 	return (begin);
 }
 
