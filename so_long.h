@@ -6,7 +6,7 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 18:47:35 by manujime          #+#    #+#             */
-/*   Updated: 2023/04/14 20:25:31 by manujime         ###   ########.fr       */
+/*   Updated: 2023/04/14 20:52:05 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,6 @@ void	ft_hook(void *param);
 //utils
 void	ft_the_end(t_game *game);
 void	ft_finish(t_game *game);
-void	ft_take_potion(t_game *game);
+void	ft_take_potion(t_game *game, int y, int x);
 
 #endif
