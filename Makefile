@@ -6,7 +6,7 @@
 #    By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/06 16:21:34 by manujime          #+#    #+#              #
-#    Updated: 2023/04/13 10:41:24 by manujime         ###   ########.fr        #
+#    Updated: 2023/04/14 17:04:18 by manujime         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,7 @@ SRC =   main.c \
 		map_check.c \
 		utils.c \
 		path.c \
+		move.c \
 
 OBJ = $(SRC:.c=.o)
 

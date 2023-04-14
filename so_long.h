@@ -6,7 +6,7 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 18:47:35 by manujime          #+#    #+#             */
-/*   Updated: 2023/04/14 16:33:02 by manujime         ###   ########.fr       */
+/*   Updated: 2023/04/14 17:01:34 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,5 +68,7 @@ int		ft_path(char **map);
 t_point	ft_get_player_yx(char **map);
 //utils
 void	ft_window(t_game *game);
+//move
+void	ft_hook(void *param);
 
 #endif

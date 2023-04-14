@@ -6,7 +6,7 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 20:52:23 by manujime          #+#    #+#             */
-/*   Updated: 2023/04/14 16:40:57 by manujime         ###   ########.fr       */
+/*   Updated: 2023/04/14 17:18:40 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,28 +19,6 @@ void	ft_load_texures(t_game *game)
 	game->textures->potion = mlx_load_png("textures/potion.png");
 	game->textures->ladder = mlx_load_png("textures/ladder.png");
 	game->textures->wall = mlx_load_png("textures/wall.png");
-}
-
-void	ft_hook(void *param)
-{
-	mlx_t	*mlx;
-	t_game	*game;
-
-	game = param;
-	mlx = game->mlx;
-	if (!game->key_pressed)
-		game->key_pressed = 1;
-	if (mlx_is_key_down(mlx, MLX_KEY_ESCAPE))
-		mlx_close_window(mlx);
-	if (mlx_is_key_down(mlx, MLX_KEY_UP))
-		game->player->instances[0].y -= 32;
-	if (mlx_is_key_down(mlx, MLX_KEY_DOWN))
-		game->player->instances[0].y += 32;
-	if (mlx_is_key_down(mlx, MLX_KEY_LEFT))
-		game->player->instances[0].x -= 32;
-	if (mlx_is_key_down(mlx, MLX_KEY_RIGHT))
-		game->player->instances[0].x += 32;
-	game->key_pressed = 0;
 }
 
 void	ft_render_player(t_game *game)
@@ -97,8 +75,6 @@ void	ft_fill_map(t_game *game)
 	}
 }
 
-
-
 void	ft_window(t_game *game)
 {
 	t_textures	textures;
@@ -114,7 +90,7 @@ void	ft_window(t_game *game)
 	ft_load_texures(game);
 	ft_fill_map(game);
 	ft_render_player(game);
-	mlx_loop_hook(game->mlx, &ft_hook, &game);
+	mlx_loop_hook(game->mlx, &ft_hook, game);
 	mlx_loop(game->mlx);
 	exit(0);
 }
