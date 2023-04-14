@@ -6,7 +6,7 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 18:47:35 by manujime          #+#    #+#             */
-/*   Updated: 2023/04/14 17:01:34 by manujime         ###   ########.fr       */
+/*   Updated: 2023/04/14 20:25:31 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,9 +66,13 @@ void	ft_data_init(t_game *game, char **map, char *mapfile);
 //path
 int		ft_path(char **map);
 t_point	ft_get_player_yx(char **map);
-//utils
+//render
 void	ft_window(t_game *game);
 //move
 void	ft_hook(void *param);
+//utils
+void	ft_the_end(t_game *game);
+void	ft_finish(t_game *game);
+void	ft_take_potion(t_game *game);
 
 #endif
