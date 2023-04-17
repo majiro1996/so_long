@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   render.c                                           :+:      :+:    :+:   */
+/*   BONUS_render.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/10 20:52:23 by manujime          #+#    #+#             */
-/*   Updated: 2023/04/17 14:43:02 by manujime         ###   ########.fr       */
+/*   Created: 2023/04/17 11:58:49 by manujime          #+#    #+#             */
+/*   Updated: 2023/04/17 12:07:38 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,6 @@ void	ft_render_player(t_game *game)
 /*renders all the sprites in the game besides the floor tile and the player*/
 void	ft_fill_rest(t_game *game, int y, int x)
 {
-	mlx_image_t	*aux;
-
 	if (game->map[y][x] == '1')
 	{
 		game->wall = mlx_texture_to_image(game->mlx, game->textures->wall);
@@ -47,11 +45,10 @@ void	ft_fill_rest(t_game *game, int y, int x)
 	}
 	else if (game->map[y][x] == 'C')
 	{
-		aux = mlx_texture_to_image(game->mlx, game->textures->potion);
-		if (mlx_image_to_window(game->mlx, aux, x * 32,
+		game->potion = mlx_texture_to_image(game->mlx, game->textures->potion);
+		if (mlx_image_to_window(game->mlx, game->potion, x * 32,
 				y * 32) < 0)
 			exit(1);
-		ft_collectible_list(game, aux);
 	}
 	else if (game->map[y][x] == 'E')
 	{

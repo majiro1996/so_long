@@ -6,17 +6,18 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 16:33:15 by manujime          #+#    #+#             */
-/*   Updated: 2023/04/14 16:36:52 by manujime         ###   ########.fr       */
+/*   Updated: 2023/04/17 15:05:06 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
+/*
 void	ft_leaks(void)
 {
 	system("leaks -q so_long");
 }
-
+*/
 /*checks if the map extension is correct*/
 int	ft_extension_check(char *str, char *ex)
 {
@@ -44,7 +45,6 @@ void	ft_so_long(char *mapfile)
 	map = ft_charge_map(mapfile);
 	if (ft_path(map) && ft_map_check(mapfile))
 	{
-		ft_print_char_matrix(map);//
 		ft_free_char_matrix(map);
 		map = ft_charge_map(mapfile);
 		ft_data_init(&game, map, mapfile);
@@ -55,7 +55,6 @@ void	ft_so_long(char *mapfile)
 
 int	main(int argc, char **argv)
 {
-	atexit(ft_leaks);
 	int	fd;
 
 	if (argc != 2)

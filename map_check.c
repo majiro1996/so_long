@@ -6,7 +6,7 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 23:30:08 by manujime          #+#    #+#             */
-/*   Updated: 2023/04/14 16:33:13 by manujime         ###   ########.fr       */
+/*   Updated: 2023/04/17 14:57:59 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,7 +126,6 @@ int	ft_map_check(char *mapfile)
 
 	clear = 0;
 	map = ft_charge_map(mapfile);
-	ft_print_char_matrix(map);//
 	clear += ft_shape(map, mapfile);
 	clear += ft_elements(map);
 	if (!(ft_el_count(map, 'P') == 1 && ft_el_count(map, 'C') >= 1

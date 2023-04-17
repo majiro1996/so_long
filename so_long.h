@@ -6,7 +6,7 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 18:47:35 by manujime          #+#    #+#             */
-/*   Updated: 2023/04/14 20:52:05 by manujime         ###   ########.fr       */
+/*   Updated: 2023/04/17 14:34:47 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ typedef struct s_game
 	mlx_t		*mlx;
 	mlx_image_t	*floor;
 	mlx_image_t	*wall;
-	mlx_image_t	*potion;
+	mlx_image_t	**potion;
 	mlx_image_t	*player;
 	mlx_image_t	*ladder;
 	char		**map;
@@ -73,6 +73,7 @@ void	ft_hook(void *param);
 //utils
 void	ft_the_end(t_game *game);
 void	ft_finish(t_game *game);
+void	ft_collectible_list(t_game *game, mlx_image_t *image);
 void	ft_take_potion(t_game *game, int y, int x);
 
 #endif
