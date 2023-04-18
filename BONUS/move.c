@@ -6,7 +6,7 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 17:00:30 by manujime          #+#    #+#             */
-/*   Updated: 2023/04/18 16:19:20 by manujime         ###   ########.fr       */
+/*   Updated: 2023/04/18 16:28:23 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ void	ft_hook(void *param)
 			ft_move_left(game);
 		if (mlx_is_key_down(mlx, MLX_KEY_RIGHT))
 			ft_move_right(game);
-		ft_render_moves(game);
+		ft_render_counter(game);
 	}
 	else if (!mlx_is_key_down(game->mlx, MLX_KEY_UP)
 		&& !mlx_is_key_down(game->mlx, MLX_KEY_DOWN)
