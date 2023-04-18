@@ -6,7 +6,7 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 23:30:08 by manujime          #+#    #+#             */
-/*   Updated: 2023/04/17 14:57:59 by manujime         ###   ########.fr       */
+/*   Updated: 2023/04/18 18:45:04 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int	ft_elements(char **map)
 		k = 0;
 		while (map[c][k])
 		{
-			if (ft_strchr("01CEP\n", map[c][k]) == NULL)
+			if (ft_strchr("01CEPA\n", map[c][k]) == NULL)
 			{
 				ft_printf("Error, non suported elements in the map\n");
 				return (0);

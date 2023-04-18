@@ -6,7 +6,7 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 17:00:30 by manujime          #+#    #+#             */
-/*   Updated: 2023/04/17 15:02:35 by manujime         ###   ########.fr       */
+/*   Updated: 2023/04/18 19:00:36 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ void	ft_move_down(t_game *game)
 	game->current_y += 1;
 	game->move_count++;
 	game->key_pressed = 1;
+	ft_printf("Move count: %d\n", game->move_count);
 }
 
 void	ft_hook(void *param)

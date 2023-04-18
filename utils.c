@@ -6,7 +6,7 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 19:26:42 by manujime          #+#    #+#             */
-/*   Updated: 2023/04/17 14:53:10 by manujime         ###   ########.fr       */
+/*   Updated: 2023/04/18 17:16:34 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void	ft_finish(t_game *game)
 	{
 		mlx_close_window(game->mlx);
 		ft_printf("Give me those potions you twat\n");
+		free(game->potion);
 	}
 	else
 		ft_printf("Don't you dare to come down here without my potions!!!\n");

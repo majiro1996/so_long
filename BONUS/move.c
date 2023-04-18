@@ -6,7 +6,7 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 17:00:30 by manujime          #+#    #+#             */
-/*   Updated: 2023/04/18 16:28:23 by manujime         ###   ########.fr       */
+/*   Updated: 2023/04/18 19:02:13 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ void	ft_move_left(t_game *game)
 	game->move_count++;
 	game->key_pressed = 1;
 	ft_printf("Move count: %d\n", game->move_count);
+	if (game->map[game->current_y][game->current_x - 1] == 'A')
+		ft_the_end(game);
 }
 
 void	ft_move_right(t_game *game)
@@ -36,6 +38,8 @@ void	ft_move_right(t_game *game)
 	game->move_count++;
 	game->key_pressed = 1;
 	ft_printf("Move count: %d\n", game->move_count);
+	if (game->map[game->current_y][game->current_x + 1] == 'A')
+		ft_the_end(game);
 }
 
 void	ft_move_up(t_game *game)
@@ -49,6 +53,8 @@ void	ft_move_up(t_game *game)
 	game->move_count++;
 	game->key_pressed = 1;
 	ft_printf("Move count: %d\n", game->move_count);
+	if (game->map[game->current_y - 1][game->current_x] == 'A')
+		ft_the_end(game);
 }
 
 void	ft_move_down(t_game *game)
@@ -61,6 +67,9 @@ void	ft_move_down(t_game *game)
 	game->current_y += 1;
 	game->move_count++;
 	game->key_pressed = 1;
+	ft_printf("Move count: %d\n", game->move_count);
+	if (game->map[game->current_y + 1][game->current_x] == 'A')
+		ft_the_end(game);
 }
 
 void	ft_hook(void *param)

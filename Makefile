@@ -6,7 +6,7 @@
 #    By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/06 16:21:34 by manujime          #+#    #+#              #
-#    Updated: 2023/04/18 16:17:41 by manujime         ###   ########.fr        #
+#    Updated: 2023/04/18 18:43:37 by manujime         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,7 @@ BSRC =  bonus/main.c \
 		bonus/move.c \
 		bonus/render.c \
 		bonus/counter.c \
+		bonus/enemy.c \
 			
 OBJ = $(SRC:.c=.o)
 
