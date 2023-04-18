@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   BONUS_move.c                                       :+:      :+:    :+:   */
+/*   move.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/17 11:58:46 by manujime          #+#    #+#             */
-/*   Updated: 2023/04/17 12:08:00 by manujime         ###   ########.fr       */
+/*   Created: 2023/04/14 17:00:30 by manujime          #+#    #+#             */
+/*   Updated: 2023/04/18 16:19:20 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,6 @@ void	ft_move_down(t_game *game)
 	game->current_y += 1;
 	game->move_count++;
 	game->key_pressed = 1;
-	ft_printf("Move count: %d\n", game->move_count);
 }
 
 void	ft_hook(void *param)
@@ -83,6 +82,7 @@ void	ft_hook(void *param)
 			ft_move_left(game);
 		if (mlx_is_key_down(mlx, MLX_KEY_RIGHT))
 			ft_move_right(game);
+		ft_render_moves(game);
 	}
 	else if (!mlx_is_key_down(game->mlx, MLX_KEY_UP)
 		&& !mlx_is_key_down(game->mlx, MLX_KEY_DOWN)

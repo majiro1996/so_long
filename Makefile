@@ -6,7 +6,7 @@
 #    By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/06 16:21:34 by manujime          #+#    #+#              #
-#    Updated: 2023/04/14 19:34:55 by manujime         ###   ########.fr        #
+#    Updated: 2023/04/18 16:17:41 by manujime         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,18 @@ SRC =   main.c \
 		move.c \
 		render.c \
 
+BSRC =  bonus/main.c \
+		bonus/map_loader.c \
+		bonus/map_check.c \
+		bonus/utils.c \
+		bonus/path.c \
+		bonus/move.c \
+		bonus/render.c \
+		bonus/counter.c \
+			
 OBJ = $(SRC:.c=.o)
+
+BOBJ = $(BSRC:.c=.o)
 
 NAME = so_long
 
@@ -46,10 +57,13 @@ $(MLX42):
 %.o: %.c
 	@$(CC) $(CFLAGS) -c $< -o $@
 
-bonus: all
+bonus: $(LIBFT) $(MLX42) $(BOBJ)
+	@$(CC) $(CFLAGS) $(BOBJ) $(LIBFT) $(MLX42) -framework Cocoa -framework OpenGL -framework IOKit -Iinclude -lglfw -L"/Users/manujime/.brew/opt/glfw/lib/" -o $(NAME)
+	@echo "$(GREEN)so_long BONUS compiled"
 
 clean:
 	@rm -f $(OBJ)
+	@rm -f $(BOBJ)
 
 fclean: clean
 	@rm -f $(NAME)
@@ -61,4 +75,4 @@ re: fclean all
 
 py:	all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re bonus
