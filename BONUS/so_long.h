@@ -6,7 +6,7 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 18:47:35 by manujime          #+#    #+#             */
-/*   Updated: 2023/04/18 18:32:45 by manujime         ###   ########.fr       */
+/*   Updated: 2023/04/19 17:15:39 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,11 @@ typedef struct s_textures
 
 typedef struct s_game
 {
+	int			danger;
+	int			total_enemy;
 	int			enemy_c;
 	mlx_image_t	**enemy;
+	mlx_image_t	**enemy_2;
 	mlx_image_t	*text;
 	t_textures	*textures;
 	mlx_t		*mlx;
@@ -81,6 +84,8 @@ void	ft_collectible_list(t_game *game, mlx_image_t *image);
 void	ft_take_potion(t_game *game, int y, int x);
 //bonus
 void	ft_render_counter(t_game *game);
-void	ft_render_enemy(t_game *game);
+void	ft_render_hole(t_game *game, int y, int x);
+void	ft_render_tentacles(t_game *game, int y, int x);
+void	ft_enemy_animation(t_game *game);
 
 #endif

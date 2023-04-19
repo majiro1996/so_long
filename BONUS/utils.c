@@ -6,7 +6,7 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 19:26:42 by manujime          #+#    #+#             */
-/*   Updated: 2023/04/18 19:05:00 by manujime         ###   ########.fr       */
+/*   Updated: 2023/04/19 17:18:07 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void	ft_finish(t_game *game)
 		mlx_close_window(game->mlx);
 		ft_printf("Give me those potions you twat\n");
 		free(game->potion);
-		free(game->enemy);
 	}
 	else
 		ft_printf("Don't you dare to come down here without my potions!!!\n");
@@ -29,12 +28,11 @@ void	ft_the_end(t_game *game)
 {
 	if (game->map[game->current_y][game->current_x] == 'E')
 		ft_finish(game);
-	if (game->map[game->current_y][game->current_x] == 'A')
+	if (game->map[game->current_y][game->current_x] == 'A' && game->danger == 1)
 	{
 		mlx_close_window(game->mlx);
 		ft_printf("Nooooo, hhelpp...arhdfdhj...\n");
 		free(game->potion);
-		free(game->enemy);
 	}
 	game->key_pressed = 0;
 }

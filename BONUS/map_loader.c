@@ -6,7 +6,7 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 18:56:24 by manujime          #+#    #+#             */
-/*   Updated: 2023/04/18 18:42:55 by manujime         ###   ########.fr       */
+/*   Updated: 2023/04/19 17:17:22 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,4 +78,6 @@ void	ft_data_init(t_game *game, char **map, char *mapfile)
 	game->exit = 0;
 	game->key_pressed = 0;
 	game->enemy_c = 0;
+	game->total_enemy = ft_el_count(map, 'A');
+	game->danger = 1;
 }

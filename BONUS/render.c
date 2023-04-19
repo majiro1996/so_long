@@ -6,7 +6,7 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 20:52:23 by manujime          #+#    #+#             */
-/*   Updated: 2023/04/18 19:08:17 by manujime         ###   ########.fr       */
+/*   Updated: 2023/04/19 17:06:11 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ void	ft_load_texures(t_game *game)
 	game->textures->potion = mlx_load_png("textures/potion.png");
 	game->textures->ladder = mlx_load_png("textures/ladder.png");
 	game->textures->wall = mlx_load_png("textures/wall.png");
-	game->textures->enemy_1 = mlx_load_png("textures/enemy_1.png");
+	game->textures->enemy_1 = mlx_load_png("textures/holes.png");
+	game->textures->enemy_2 = mlx_load_png("textures/holes_2.png");
 }
 
 void	ft_render_player(t_game *game)
@@ -81,7 +82,11 @@ void	ft_fill_map(t_game *game)
 					y * 32) < 0)
 				exit(1);
 			else
+			{
 				ft_fill_rest(game, y, x);
+				ft_render_hole(game, y, x);
+				ft_render_tentacles(game, y, x);
+			}
 			x++;
 		}
 		y++;
@@ -103,7 +108,6 @@ void	ft_window(t_game *game)
 	ft_load_texures(game);
 	ft_fill_map(game);
 	ft_render_player(game);
-	//ft_render_enemy(game);
 	mlx_loop_hook(game->mlx, &ft_hook, game);
 	mlx_loop(game->mlx);
 	exit(0);

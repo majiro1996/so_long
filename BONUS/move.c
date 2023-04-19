@@ -6,14 +6,15 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 17:00:30 by manujime          #+#    #+#             */
-/*   Updated: 2023/04/18 19:02:13 by manujime         ###   ########.fr       */
+/*   Updated: 2023/04/19 17:11:07 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
 void	ft_move_left(t_game *game)
-{
+{	
+	ft_enemy_animation(game);
 	if (game->map[game->current_y][game->current_x - 1] == '1')
 		return ;
 	if (game->map[game->current_y][game->current_x - 1] == 'C')
@@ -29,6 +30,7 @@ void	ft_move_left(t_game *game)
 
 void	ft_move_right(t_game *game)
 {
+	ft_enemy_animation(game);
 	if (game->map[game->current_y][game->current_x + 1] == '1')
 		return ;
 	if (game->map[game->current_y][game->current_x + 1] == 'C')
@@ -44,6 +46,7 @@ void	ft_move_right(t_game *game)
 
 void	ft_move_up(t_game *game)
 {
+	ft_enemy_animation(game);
 	if (game->map[game->current_y - 1][game->current_x] == '1')
 		return ;
 	if (game->map[game->current_y - 1][game->current_x] == 'C')
@@ -59,6 +62,7 @@ void	ft_move_up(t_game *game)
 
 void	ft_move_down(t_game *game)
 {
+	ft_enemy_animation(game);
 	if (game->map[game->current_y + 1][game->current_x] == '1')
 		return ;
 	if (game->map[game->current_y + 1][game->current_x] == 'C')
