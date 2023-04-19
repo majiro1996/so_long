@@ -6,7 +6,7 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 16:59:07 by manujime          #+#    #+#             */
-/*   Updated: 2023/04/19 17:16:49 by manujime         ###   ########.fr       */
+/*   Updated: 2023/04/19 17:24:55 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_enemy_animation(t_game *game)
 	{
 		if (game->move_count % 3 == 0 || game->move_count % 5 == 0)
 			break ;
-		ft_printf("moving this thing !!!!???\n");
+		ft_printf("Ghgrrhag...hghghag...hhgh\n");
 		if (game->enemy_2[i]->enabled)
 		{
 			game->enemy_2[i]->enabled = 0;
@@ -46,7 +46,7 @@ void	ft_enemy_list(t_game *game, mlx_image_t *image)
 			exit(1);
 		game->enemy_2[0] = image;
 		game->enemy_c++;
-		game->enemy_2[game->total_collect] = 0;
+		game->enemy_2[game->total_enemy] = 0;
 	}
 	else
 	{

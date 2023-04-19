@@ -6,7 +6,7 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 19:26:42 by manujime          #+#    #+#             */
-/*   Updated: 2023/04/19 17:18:07 by manujime         ###   ########.fr       */
+/*   Updated: 2023/04/19 17:27:30 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_finish(t_game *game)
 	if (game->total_collect == 0)
 	{
 		mlx_close_window(game->mlx);
-		ft_printf("Give me those potions you twat\n");
+		ft_printf("Bring those potions down here, FAST!!\n");
 		free(game->potion);
 	}
 	else

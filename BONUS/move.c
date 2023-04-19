@@ -6,7 +6,7 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 17:00:30 by manujime          #+#    #+#             */
-/*   Updated: 2023/04/19 17:11:07 by manujime         ###   ########.fr       */
+/*   Updated: 2023/04/19 17:34:03 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 void	ft_move_left(t_game *game)
 {	
-	ft_enemy_animation(game);
 	if (game->map[game->current_y][game->current_x - 1] == '1')
 		return ;
 	if (game->map[game->current_y][game->current_x - 1] == 'C')
 		ft_take_potion(game, game->current_y, game->current_x - 1);
+	ft_enemy_animation(game);
 	game->player->instances[0].x -= 32;
 	game->current_x -= 1;
 	game->move_count++;
@@ -30,11 +30,11 @@ void	ft_move_left(t_game *game)
 
 void	ft_move_right(t_game *game)
 {
-	ft_enemy_animation(game);
 	if (game->map[game->current_y][game->current_x + 1] == '1')
 		return ;
 	if (game->map[game->current_y][game->current_x + 1] == 'C')
 		ft_take_potion(game, game->current_y, game->current_x + 1);
+	ft_enemy_animation(game);
 	game->player->instances[0].x += 32;
 	game->current_x += 1;
 	game->move_count++;
@@ -46,11 +46,11 @@ void	ft_move_right(t_game *game)
 
 void	ft_move_up(t_game *game)
 {
-	ft_enemy_animation(game);
 	if (game->map[game->current_y - 1][game->current_x] == '1')
 		return ;
 	if (game->map[game->current_y - 1][game->current_x] == 'C')
 		ft_take_potion(game, game->current_y - 1, game->current_x);
+	ft_enemy_animation(game);
 	game->player->instances[0].y -= 32;
 	game->current_y -= 1;
 	game->move_count++;
@@ -62,11 +62,11 @@ void	ft_move_up(t_game *game)
 
 void	ft_move_down(t_game *game)
 {
-	ft_enemy_animation(game);
 	if (game->map[game->current_y + 1][game->current_x] == '1')
 		return ;
 	if (game->map[game->current_y + 1][game->current_x] == 'C')
 		ft_take_potion(game, game->current_y + 1, game->current_x);
+	ft_enemy_animation(game);
 	game->player->instances[0].y += 32;
 	game->current_y += 1;
 	game->move_count++;
