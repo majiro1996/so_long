@@ -6,7 +6,7 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 23:30:08 by manujime          #+#    #+#             */
-/*   Updated: 2023/04/18 18:45:04 by manujime         ###   ########.fr       */
+/*   Updated: 2023/04/20 11:35:31 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,6 @@ int	ft_shape(char **map, char *mapfile)
 	c = 0;
 	x_len = ft_strlen(map[0]);
 	y_len = ft_count_y(mapfile);
-	if (x_len < 4 || y_len < 4)
-		return (0);
 	while (map[c])
 	{
 		if ((unsigned int)c == y_len - 1)
@@ -128,8 +126,8 @@ int	ft_map_check(char *mapfile)
 	map = ft_charge_map(mapfile);
 	clear += ft_shape(map, mapfile);
 	clear += ft_elements(map);
-	if (!(ft_el_count(map, 'P') == 1 && ft_el_count(map, 'C') >= 1
-			&& ft_el_count(map, 'E') == 1))
+	if (ft_el_count(map, 'P') != 1 || ft_el_count(map, 'C') < 1
+		|| ft_el_count(map, 'E') != 1)
 	{
 		clear --;
 		ft_printf("Error, wrong number of some elements in the map\n");
@@ -137,7 +135,7 @@ int	ft_map_check(char *mapfile)
 	if (ft_walls(map, mapfile) != 1)
 	{
 		clear --;
-		ft_printf("Error, map not surrounded by walls\n");
+		ft_printf("Error, bad surrounding walls\n");
 	}
 	ft_free_char_matrix(map);
 	if (clear == 2)

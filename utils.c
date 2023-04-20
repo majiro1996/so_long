@@ -6,18 +6,27 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 19:26:42 by manujime          #+#    #+#             */
-/*   Updated: 2023/04/18 17:16:34 by manujime         ###   ########.fr       */
+/*   Updated: 2023/04/20 10:50:22 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+void	ft_free_textures(t_textures *textures)
+{
+	mlx_delete_texture(textures->floor);
+	mlx_delete_texture(textures->wall);
+	mlx_delete_texture(textures->potion);
+	mlx_delete_texture(textures->player);
+	mlx_delete_texture(textures->ladder);
+}
 
 void	ft_finish(t_game *game)
 {
 	if (game->total_collect == 0)
 	{
 		mlx_close_window(game->mlx);
-		ft_printf("Give me those potions you twat\n");
+		ft_printf("Bring those potions down here, FAST!!\n");
 		free(game->potion);
 	}
 	else

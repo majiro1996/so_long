@@ -6,11 +6,22 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 19:26:42 by manujime          #+#    #+#             */
-/*   Updated: 2023/04/19 17:27:30 by manujime         ###   ########.fr       */
+/*   Updated: 2023/04/20 10:44:19 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+void	ft_free_textures(t_textures *textures)
+{
+	mlx_delete_texture(textures->floor);
+	mlx_delete_texture(textures->wall);
+	mlx_delete_texture(textures->potion);
+	mlx_delete_texture(textures->player);
+	mlx_delete_texture(textures->ladder);
+	mlx_delete_texture(textures->enemy_1);
+	mlx_delete_texture(textures->enemy_2);
+}
 
 void	ft_finish(t_game *game)
 {
@@ -19,6 +30,7 @@ void	ft_finish(t_game *game)
 		mlx_close_window(game->mlx);
 		ft_printf("Bring those potions down here, FAST!!\n");
 		free(game->potion);
+		free(game->enemy_2);
 	}
 	else
 		ft_printf("Don't you dare to come down here without my potions!!!\n");
@@ -33,6 +45,7 @@ void	ft_the_end(t_game *game)
 		mlx_close_window(game->mlx);
 		ft_printf("Nooooo, hhelpp...arhdfdhj...\n");
 		free(game->potion);
+		free(game->enemy_2);
 	}
 	game->key_pressed = 0;
 }

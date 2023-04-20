@@ -6,7 +6,7 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 20:52:23 by manujime          #+#    #+#             */
-/*   Updated: 2023/04/17 14:43:02 by manujime         ###   ########.fr       */
+/*   Updated: 2023/04/20 10:48:49 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,7 @@ void	ft_window(t_game *game)
 	ft_load_texures(game);
 	ft_fill_map(game);
 	ft_render_player(game);
+	ft_free_textures(&textures);
 	mlx_loop_hook(game->mlx, &ft_hook, game);
 	mlx_loop(game->mlx);
 	exit(0);

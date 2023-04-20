@@ -6,7 +6,7 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 11:02:25 by manujime          #+#    #+#             */
-/*   Updated: 2023/04/17 14:59:10 by manujime         ###   ########.fr       */
+/*   Updated: 2023/04/20 10:55:56 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,8 @@ t_point	ft_get_player_yx(char **map)
 
 void	ft_flood_fill(char **map, t_point begin, int *valid)
 {
-	if (map[begin.y][begin.x] == 'P' || map[begin.y][begin.x] == 'C')
+	if (map[begin.y][begin.x] == 'P' || map[begin.y][begin.x] == 'C'
+		|| map[begin.y][begin.x] == 'A')
 		map[begin.y][begin.x] = '0';
 	if (map[begin.y][begin.x] == 'E')
 		*valid = 1;

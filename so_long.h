@@ -6,7 +6,7 @@
 /*   By: manujime <manujime@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 18:47:35 by manujime          #+#    #+#             */
-/*   Updated: 2023/04/18 18:06:33 by manujime         ###   ########.fr       */
+/*   Updated: 2023/04/20 10:47:58 by manujime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,5 +75,6 @@ void	ft_the_end(t_game *game);
 void	ft_finish(t_game *game);
 void	ft_collectible_list(t_game *game, mlx_image_t *image);
 void	ft_take_potion(t_game *game, int y, int x);
+void	ft_free_textures(t_textures *textures);
 
 #endif
